@@ -14,6 +14,7 @@ endmodule
 
 
 
+
 module tenthsofseconds (reset, clk, enable, ts);
   input reset, clk, enable;
   output [2:0] ts;
@@ -30,14 +31,16 @@ endmodule
 
 
 
-module secondcounter (reset, clk, enable, ts, ss);
+module secondcounter (reset, clk, enable, ds, ts, ss);
   input reset, clk, enable;
   output [2:0] ts;
   output [3:0] ss;
-  wire         ent;
+  output [3:0] ds;
+  wire         ent, sent;
   
-  singleseconds   i0 (reset, clk, enable, ss, ent);
-  tenthsofseconds i1 (reset, clk, enable & ent, ts);
+  singleseconds   is (reset, clk, enable, ds, sent);
+  singleseconds   i0 (reset, clk, enable & sent, ss, ent);
+  tenthsofseconds i1 (reset, clk, enable & ent & sent, ts);
 endmodule
 
 

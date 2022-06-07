@@ -1,5 +1,6 @@
 net clk loc=t9;
 net reset loc=k4;
+net pause loc=k3;
 net left<6> loc=h14;
 net left<5> loc=m4;
 net left<4> loc=p1;

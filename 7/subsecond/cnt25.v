@@ -11,30 +11,43 @@ always @(posedge reset or posedge clk)
             else cnt <= cnt + 1;
 endmodule
 
-module cnt8b (reset, clk, enable, clkdiv256);
+module cnt5 (reset, clk, enable, clkdiv5);
 input reset, clk, enable;
-output clkdiv256;
-reg [7:0] cnt;
+output clkdiv5;
+reg [2:0] cnt;
 
-assign clkdiv256 = (cnt==8'd255);
+assign clkdiv5 = (cnt==3'd4);
+always @(posedge reset or posedge clk)
+  if (reset) cnt <= 0;
+   else if (enable) 
+          if (clkdiv5) cnt <= 0;
+            else cnt <= cnt + 1;
+endmodule
+
+module cnt7b (reset, clk, enable, clkdiv128);
+input reset, clk, enable;
+output clkdiv128;
+reg [6:0] cnt;
+
+assign clkdiv128 = (cnt==7'd127);
 always @(posedge reset or posedge clk)
   if (reset) cnt <= 0;
    else if (enable) cnt <= cnt + 1;
 endmodule
 
 
-module OneHertz(reset, clk, en_nxt);
+module TenHertz(reset, clk, en_nxt);
 input clk, reset;
 output en_nxt;
-wire clk1Hz;
+wire clk10Hz;
 wire first, second, third, fourth;
 
 cnt25 i0 (reset, clk, 1'b1, first);
 cnt25 i1 (reset, clk, first, second);
 cnt25 i2 (reset, clk, first & second, third);
-cnt25 i3 (reset, clk, first & second & third, fourth);
-cnt8b i4 (reset, clk, first & second & third & fourth, clk1Hz);
-assign en_nxt = first & second & third & fourth & clk1Hz;
+cnt5 i3 (reset, clk, first & second & third, fourth);
+cnt7b i4 (reset, clk, first & second & third & fourth, clk10Hz);
+assign en_nxt = first & second & third & fourth & clk10Hz;
 endmodule
 
 /*

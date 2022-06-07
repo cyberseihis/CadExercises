@@ -1,0 +1,3 @@
+mulpos: 13.198
+mulneg: 12.309
+digit: 12.295
