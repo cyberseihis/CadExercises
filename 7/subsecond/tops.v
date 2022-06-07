@@ -4,6 +4,9 @@ module tops (reset, pause, clk, left, right, side);
   output [9:0] side;
   wire [2:0] ts;
   wire [3:0] ss;
+  // I assume the error was due to not declaring ds as a wire
+  // test next time
+  wire [3:0] ds;
   
   reg [3:0] pss;
   reg [2:0] pts;
