@@ -62,7 +62,7 @@ module scan_2_dec (scan, dec);
   output [7:0] dec;
 
   
-  assign dec = (scan == 8'h45) ? 4'd0 :
+  assign dec =(scan == 8'h45) ? 4'd0 :
               (scan == 8'h16) ? 4'd1 :
               (scan == 8'h1E) ? 4'd2 :
               (scan == 8'h26) ? 4'd3 :
@@ -71,25 +71,29 @@ module scan_2_dec (scan, dec);
               (scan == 8'h36) ? 4'd6 :
               (scan == 8'h3D) ? 4'd7 :
               (scan == 8'h3E) ? 4'd8 :
-              (scan == 8'h46) ? 4'd9 : 8'b10000000 ; // todo add operands
+              (scan == 8'h46) ? 4'd9 :
+              (scan == 8'h79) ? 4'd12 : // +
+              (scan == 8'h7B) ? 4'd13 : // -
+              (scan == 8'h7C) ? 4'd14 : // *
+              (scan == 8'h4A) ? 4'd15 : // /
+              4'd11 ;
 endmodule 
 
-// todo
 module dec_2_7seg (dec, ss);
-  input  [7:0] scan;
+  input  [3:0] dec;
   output [7:0] ss;
 
   
-  assign ss = (scan == 8'h45) ? 8'b01111110 :
-              (scan == 8'h16) ? 8'b00110000 :
-              (scan == 8'h1E) ? 8'b01101101 :
-              (scan == 8'h26) ? 8'b01111001 :
-              (scan == 8'h25) ? 8'b00110011 :
-              (scan == 8'h2E) ? 8'b01011011 :
-              (scan == 8'h36) ? 8'b01011111 :
-              (scan == 8'h3D) ? 8'b01110010 :
-              (scan == 8'h3E) ? 8'b01111111 :
-              (scan == 8'h46) ? 8'b01111011 : 8'b10000000 ;
+  assign ss = (dec == 4'd0) ? 8'b01111110 :
+              (dec == 4'd1) ? 8'b00110000 :
+              (dec == 4'd2) ? 8'b01101101 :
+              (dec == 4'd3) ? 8'b01111001 :
+              (dec == 4'd4) ? 8'b00110011 :
+              (dec == 4'd5) ? 8'b01011011 :
+              (dec == 4'd6) ? 8'b01011111 :
+              (dec == 4'd7) ? 8'b01110010 :
+              (dec == 4'd8) ? 8'b01111111 :
+              (dec == 4'd9) ? 8'b01111011 : 8'b10000000 ;
 endmodule 
 
 module show(dig1, dig2, dig3, odig):
@@ -98,8 +102,14 @@ module show(dig1, dig2, dig3, odig):
   input [3:0] dig3;
   output [3:0] odig;
   
-  assign odig = (dig3 < 4'd10) ? dig3 :
-    // switch for each operand
+  assign tempdig = (dig3 < 4'd10) ? dig3 :
+                (dig3 == 4'd12) ? dig1 + dig2 :
+                (dig3 == 4'd13) ? dig1 - dig2 :
+                (dig3 == 4'd14) ? dig1 * dig2 :
+                (dig3 == 4'd15) ? dig1 / dig2 : 4'd11;
+  assign odig = tempdig % 10;
+// modulo 10 arithmetic, only 1 digit as output
+// the other shows last digit
 	
 endmodule
 
@@ -112,17 +122,23 @@ module eight (reset, clk, ps2clk, ps2data, left, right);
   reg [3:0] past;
   wire   [7:0] scan;
   wire [3:0] current;
+  wire [3:0] ldig;
   wire f0;
   
   kbd_protocol kbd (reset, clk, ps2clk, ps2data, f0, scan);
   scan_2_dec s2d (scan, current);
 
+  show sh (past, last, current, ldig);
+
+  dec_2_7seg dright(last, right);
+  dec_2_7seg dleft(ldig, left);
+
   // When the release of the next key is detected
-  // save the 7-seg code of the currently shown digit to the last
+  // save the last keypress/ result
   always @(posedge clk)
     if(f0 == 1) begin
-      past <= right;
-      right <= left;
+      past <= last;
+      last <= ldig; // Past results can be operands
     end  
 
 endmodule
