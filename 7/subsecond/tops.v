@@ -15,7 +15,7 @@ module tops (reset, pause, clk, left, right, side);
   secondcounter i1 (reset, clk, en_nxt, ds, ts, ss);
   bin_2_7       lt ({1'b0,pts}, left);
   bin_2_7       rt (pss, right);
-  assign side = 10'b1 << ds;
+  assign side = ~(10'h3FF << ds); // Shift a bunch of ones, then revert to turn on ds amount of leds
   
   initial begin
   pss <= 0;
