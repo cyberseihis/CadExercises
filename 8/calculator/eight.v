@@ -59,7 +59,7 @@ endmodule
 
 module scan_2_dec (scan, dec);
   input  [7:0] scan;
-  output [7:0] dec;
+  output [3:0] dec;
 
   
   assign dec =(scan == 8'h45) ? 4'd0 :
@@ -96,18 +96,24 @@ module dec_2_7seg (dec, ss);
               (dec == 4'd9) ? 8'b01111011 : 8'b10000000 ;
 endmodule 
 
-module show(dig1, dig2, dig3, odig):
+module show(dig1, dig2, dig3, odig);
   input [3:0] dig1;
   input [3:0] dig2;
   input [3:0] dig3;
   output [3:0] odig;
+
+  wire [3:0] sum, dif, prod, frac;
   
-  assign tempdig = (dig3 < 4'd10) ? dig3 :
-                (dig3 == 4'd12) ? dig1 + dig2 :
-                (dig3 == 4'd13) ? dig1 - dig2 :
-                (dig3 == 4'd14) ? dig1 * dig2 :
-                (dig3 == 4'd15) ? dig1 / dig2 : 4'd11;
-  assign odig = tempdig % 10;
+  assign oper = dig3[1:0];
+  add add1(dig1, dig2, sum);
+  sub sub1(dig1, dig2, dif);
+  mul mul1(dig1, dig2, prod);
+  div div1(dig1, dig2, frac);
+  assign odig = (dig3 < 4'd10) ? dig3 :
+                (oper == 2'd0) ? sum :
+                (oper == 2'd1) ? dif :
+                (oper == 2'd2) ? prod :
+                (oper == 2'd3) ? frac : 4'd0;
 // modulo 10 arithmetic, only 1 digit as output
 // the other shows last digit
 	
