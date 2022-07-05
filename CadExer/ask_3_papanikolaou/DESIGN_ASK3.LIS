@@ -1,0 +1,40 @@
+AutoECO Report
+FILE-A: C:\LAB\ASK_3_PAPANIKOLAOU\DESIGN_ASK3.MAX
+FILE-B: C:\LAB\ASK_3_PAPANIKOLAOU\DESIGN_ASK3.MNL
+If "*EOF*" immediately follows, no changes were made
+Adding package 74LS86
+Adding package 74LS00
+Adding package 74LS08
+Adding package 74LS04
+Adding package 74LS02
+Adding package 74LS32
+Adding component U2
+Found footprint DIP.100/14/W.300/L.750 from PRT file for part 74LS86, comp U2
+Adding component U1
+Adding component U5
+Adding component U4
+Adding component U3
+Adding component U6
+Adding net N00687
+Adding net N00426
+Adding net N00781
+Adding net N00835
+Adding net N00231
+Adding net N00162
+Adding net VCC
+Adding net GND
+Adding net N00047
+Adding net N00068
+Adding net N00600
+Adding net N00252
+Adding net N00387
+Adding net N00189
+Adding net N00571
+Adding net N01283
+Adding net N00949
+Adding net N01304
+Adding net N01121
+Deleting component P1
+Deleting net DEFAULT
+*EOF*
+No errors found
