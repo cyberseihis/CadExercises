@@ -1,0 +1,161 @@
+(ExpressProject "ask_4_papanikolaou"
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\TTL.OLB"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\design1.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (Folder "Simulation Resources"
+    (Folder "In Design"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design1.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes"))
+      (File ".\stimulus.stm"
+        (Type "Simulate Stimulus"))
+      (Document 5 ".\stimulus.stm"
+        (Window "44 0 1 -1 -1 -4 -30 154 1126 203 795"))
+      (Document 1
+        (Signal "schematic1" "pd[0]" 4 0)
+        (Signal "schematic1" "pd[1]" 4 0)
+        (Signal "schematic1" "pd[2]" 4 0)
+        (Signal "schematic1" "pd[3]" 4 0)
+        (Signal "schematic1" "pd[4]" 4 0)
+        (Signal "schematic1" "pd[5]" 4 0)
+        (Signal "schematic1" "pd[6]" 4 0)
+        (Signal "schematic1" "pd[7]" 4 0)
+        (Signal "schematic1" "dout[0]" 4 0)
+        (Signal "schematic1" "dout[1]" 4 0)
+        (Signal "schematic1" "dout[2]" 4 0)
+        (Signal "schematic1" "dout[3]" 4 0)
+        (Signal "schematic1" "dout[4]" 4 0)
+        (Signal "schematic1" "dout[5]" 4 0)
+        (Signal "schematic1" "dout[6]" 4 0)
+        (Signal "schematic1" "dout[7]" 4 0)
+        (Signal "schematic1" "din[0]" 4 0)
+        (Signal "schematic1" "din[1]" 4 0)
+        (Signal "schematic1" "din[2]" 4 0)
+        (Signal "schematic1" "din[3]" 4 0)
+        (Signal "schematic1" "din[4]" 4 0)
+        (Signal "schematic1" "din[5]" 4 0)
+        (Signal "schematic1" "din[6]" 4 0)
+        (Signal "schematic1" "din[7]" 4 0)
+        (Signal "schematic1" "pd7" 4 0)
+        (Signal "schematic1" "pd6" 4 0)
+        (Signal "schematic1" "p_pwen" 4 0)
+        (Signal "schematic1" "pd5" 4 0)
+        (Signal "schematic1" "pd4" 4 0)
+        (Signal "schematic1" "pd3" 4 0)
+        (Signal "schematic1" "pd2" 4 0)
+        (Signal "schematic1" "pd1" 4 0)
+        (Signal "schematic1" "p_pren" 4 0)
+        (Signal "schematic1" "pd0" 4 0)
+        (Signal "schematic1" "p_pclk" 4 0)
+        (Signal "schematic1" "din" 4 0)
+        (Signal "schematic1" "dout" 4 0)
+        (Signal "schematic1" "pd" 4 0)
+        (Signal "schematic1" "ren" 4 0)
+        (Signal "schematic1" "n03815" 4 0)
+        (Signal "schematic1" "n03576" 4 0)
+        (Signal "schematic1" "vcc" 4 0)
+        (Signal "schematic1" "gnd" 4 0)
+        (Signal "schematic1" "n03608" 4 0)
+        (Signal "schematic1" "n03710" 4 0)
+        (Signal "schematic1" "n05107" 4 0)
+        (Signal "schematic1" "wen" 4 0)
+        (Signal "schematic1" "clk" 4 0)
+        (Signal "schematic1" "n03923" 4 0)
+        (Signal "schematic1" "n04071" 4 0)
+        (Signal "schematic1" "n04185" 4 0)
+        (Signal "schematic1" "n04302" 4 0)
+        (Signal "schematic1" "n02560" 4 0)
+        (Signal "schematic1" "orcad_unused" 4 0)
+        (Window "44 2 3 160 847 -6 -32 55 905 177 526"))
+      (Options
+        (AssertBeep 1)
+        (AssertLog 1)
+        (AssertMsg 1)
+        (AssertStop 1)
+        (BreakBeep 1)
+        (BreakLog 1)
+        (BreakMessage 1)
+        (BreakStop 1)
+        (FileOpen
+           "C:\Documents and Settings\Administrator\Desktop\ask4\ask4_sim")
+        (InstructionStep 1)
+        (InteractiveUpdate 0)
+        (ITCEnabled 0)
+        (ListDisplayTop 1)
+        (LogTimeStamp 1)
+        (MiscOptLastPage 0)
+        (PlaAddToProject 1)
+        (PlaClockToOutput 0)
+        (PlaCombinational 0)
+        (PlaResolution -1)
+        (PlaSetupTime 0)
+        (PlaSpeedGrade 15)
+        (PlaTriStateEnable 0)
+        (Radix 5)
+        (RunResolution 2)
+        (RunTime 10000)
+        (SDFTiming 1)
+        (TimeCursorSnap 0)
+        (TimingBeep 0)
+        (TimingLog 1)
+        (TimingMsg 0)
+        (TimingStop 0)
+        (VHDLStandard 1)
+        (WaveDisplayTop 1)))
+    (Folder "Compiled"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design1.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes")))
+    (Folder "Timed"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design1.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes")))
+    (DefaultFolder "In Design")
+    (LastModified "Wed Jul 06 23:01:53 2022"))
+  (GlobalState
+    (Physical 0)
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "Library")
+      (Path "Simulation Resources" "In Design")
+      (Path "Simulation Resources" "Compiled")
+      (Path "Simulation Resources" "Timed")
+      (Select "Design Resources"
+         "C:\Documents and Settings\tasos\Desktop\ask_4_simul_papanikolaou\design1.dsn"))
+    (HierarchyView)
+    (Document
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 558"))
+      (Tab 0))
+    (Document
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 68 804 138 736")
+        (Scroll "1470 0")
+        (Zoom "200"))
+      (Path
+         "C:\DOCUMENTS AND SETTINGS\TASOS\DESKTOP\ASK_4_SIMUL_PAPANIKOLAOU\DESIGN1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))

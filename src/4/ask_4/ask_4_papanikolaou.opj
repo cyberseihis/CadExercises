@@ -1,0 +1,50 @@
+(ExpressProject "ask_4_papanikolaou"
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\TTL.OLB"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\design1.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (Folder "Simulation Resources"
+    (Folder "In Design"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel")))
+    (Folder "Compiled"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel")))
+    (Folder "Timed"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\orcomp.vhd"
+        (Type "VHDL SimModel"))))
+  (GlobalState
+    (Physical 0)
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "Library"))
+    (HierarchyView)
+    (Document
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 558"))
+      (Tab 0))
+    (Document
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 161 897 100 692")
+        (Scroll "0 0")
+        (Zoom "200"))
+      (Path
+         "C:\DOCUMENTS AND SETTINGS\ALL USERS\DESKTOP\ASK_5_PAPANIKOLAOU\DESIGN1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))
